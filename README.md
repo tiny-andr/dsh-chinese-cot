@@ -1,40 +1,38 @@
 # dsh-chinese-cot
 
-One line at the very front of every DeepSeek Harness system prompt: `请全程使用中文进行思考！` — "think in Chinese, throughout."
+在 DeepSeek Harness 每个系统提示词的**最前面**插入一行：`请全程使用中文进行思考！`
 
-[中文说明](README.zh-CN.md)
+开关和注入内容都在 **设置 → 中文思考注入**。
 
-The switch and the text live in **Settings → Chinese CoT**.
+- 插在系统提示词第一行，主会话、子代理、workflow 子任务都生效
+- 固定一行、不随轮次追加，前缀缓存因此不会被反复破坏
+- 纯 JS，无依赖，无构建步骤
 
-- First line of the system prompt — main agent, subagents and workflow children all get it
-- One fixed line, never appended per turn, so prefix caching stays intact until you edit it
-- Plain JS, no dependencies, no build step
+## 安装
 
-## Install
+让 DSH 里的 agent 装 —— 直接把这句发给它：
 
-With a DSH agent — paste this into the session:
+> 安装并启用这个 DSH 插件：https://github.com/tiny-andr/dsh-chinese-cot
 
-> Install the DSH plugin from https://github.com/tiny-andr/dsh-chinese-cot and enable it.
+它会自己走到 `plugin_manager` → `install_bundle`，target `github:tiny-andr/dsh-chinese-cot`。
 
-It resolves to `plugin_manager` → `install_bundle`, target `github:tiny-andr/dsh-chinese-cot`.
-
-By hand:
+手工装：
 
 ```sh
 dsh plugin --profile <profile> add github:tiny-andr/dsh-chinese-cot
 ```
 
-The CLI only installs the package. Add `dsh-chinese-cot` to `dsh.profile.bundles` in the profile's `package.json` so the bundle is selected — the Plugin Manager page does both steps for you.
+CLI 只负责装包。还要把 `dsh-chinese-cot` 加进 profile `package.json` 的 `dsh.profile.bundles`，bundle 才会被选中 —— 插件管理页面两步都会替你做。
 
-## Settings
+## 设置
 
-`<DSH_HOME>/dsh-chinese-cot.json`:
+`<DSH_HOME>/dsh-chinese-cot.json`：
 
 ```json
 { "enabled": true, "text": "请全程使用中文进行思考！" }
 ```
 
-Saving in the settings page applies on the next request. A hand edit is read when the plugin loads.
+设置页保存后下一次请求即生效；直接改文件则在插件加载时被读取。
 
 ## License
 
