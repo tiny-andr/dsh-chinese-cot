@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="System prompt injection">
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="#2b6cb0"/>
+  <rect x="15" y="17" width="34" height="4" rx="2" fill="#ffffff"/>
+  <rect x="19" y="28" width="30" height="3" rx="1.5" fill="#ffffff" opacity="0.75"/>
+  <rect x="19" y="35.5" width="30" height="3" rx="1.5" fill="#ffffff" opacity="0.55"/>
+  <rect x="19" y="43" width="20" height="3" rx="1.5" fill="#ffffff" opacity="0.35"/>
+  <path d="M15 12v9" stroke="#ffd166" stroke-width="3" stroke-linecap="round"/>
+</svg>

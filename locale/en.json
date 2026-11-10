@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Chinese CoT",
+    "description": "Puts one editable line at the very front of every system prompt, with an on/off switch and a settings page."
+  }
+}
